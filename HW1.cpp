@@ -62,9 +62,7 @@ int findMaxOfVector(const std::vector<int>& vec) {
 std::pair<int, int> findTwoSumPair(const std::vector<int>& vec, int targetSum) {
   //throw std::logic_error("not implemented");
   std::map<int, int> pairs;
-   for(int i = 0; i < vec.size(); i++) {
-     std::cout<<vec[i]<<std::endl;
-   }
+  std::cout<<targetSum<<std::endl;
 
   for(int i = 0; i < vec.size(); i++) {
     int complement = targetSum - vec[i];
