@@ -14,8 +14,8 @@
 
 /*
  * Add your key ideas to this comment.
- * How did you approach the problem?
- * Why does your code work?
+ * How did you approach the problem - I figured this problem could be solved by gathering the size and sum of all numbers in the vector with thye use of library functions .size() as well as the accumulate function. 
+ * Why does your code work - My code works because it effiecently catpures both size and sum value and returns a value based on the given formula. 
  * 
  */
 int findMissingNumber(const std::vector<int>& vec) {
@@ -27,8 +27,9 @@ int findMissingNumber(const std::vector<int>& vec) {
 
 /*  
  * Add your key ideas to this comment.
- * How did you approach the problem?
- * Why does your code work?
+ * How did you approach the problem - To begin with, I emplemented the two given cases. Which are if the vector is empty or only has one element. 
+ Next I focusd on solving other cases when the size of the vector is greater than 1. 
+ * Why does your code work - My solution work because it quickly return's the result for the two given cases but also iteravely find the max element of a vector. 
  *
  */
 int findMaxOfVector(const std::vector<int>& vec) {
@@ -55,23 +56,18 @@ int findMaxOfVector(const std::vector<int>& vec) {
 
 /*
  * Add your key ideas to this comment.
- * How did you approach the problem?
- * Why does your code work?
+ * How did you approach the problem - I wanted to practice solving this algorithm as efficently as posiible. I chose to use a hash map sice the time complexity will be O(n) originally. However there was one edge case that I was unable to solve for. Will come into office hours for help.
+ I ultimately solved the problem with two for loops 
+ * Why does your code work? - my code iteravely searcehs each element in the vector and looks for tow entries that equal the desired sum
  *
  */
 std::pair<int, int> findTwoSumPair(const std::vector<int>& vec, int targetSum) {
   //throw std::logic_error("not implemented");
-  std::map<int, int> pairs;
+  /*std::map<int, int> pairs;
   //std::cout<<targetSum<<std::endl;
 
   for(int i = 0; i < vec.size(); i++) {
-    int complement = 0;
-    if(targetSum > 0) {
-      complement = targetSum - vec[i];
-    }
-    else {
-      complement = vec[i] - targetSum ;
-    }
+    int complement = targetSum - vec[i] ;
     
     if(pairs.count(complement))  {
       int comp_index = std::distance(pairs.begin(), pairs.find(complement));
@@ -79,16 +75,25 @@ std::pair<int, int> findTwoSumPair(const std::vector<int>& vec, int targetSum) {
     }
     
     else {
-      pairs.insert(std::make_pair(vec[i], i));
+      pairs.insert(std::make_pair(vec[i], complement));
     }
   }  
+  return std::make_pair(-1,-1);
+  */
+  for( int i = 0; i < vec.size(); i++ ) {
+    for(int j = i + 1; j < vec.size(); j++) {
+      if(vec[i] + vec[j] == targetSum) {
+        return std::make_pair(i, j);
+      }
+    }
+  }
   return std::make_pair(-1,-1);
 }
 
 /*
- * Add your key ideas to this comment.
- * How did you approach the problem?
- * Why does your code work?
+ * Add your key ideas to this comment
+ * How did you approach the problem - Originally I beleived we could add each value to the place sum however I realized that we needed to check for isnstances where null nodes may occur
+ * Why does your code work? - My checks if each node is null or not. It solves edge cases where the number of digits are different 
  *
  */
 Node<int>* add(Node<int>* l1, Node<int>* l2) {
