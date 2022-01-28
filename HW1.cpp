@@ -65,16 +65,14 @@ std::pair<int, int> findTwoSumPair(const std::vector<int>& vec, int targetSum) {
 
   for(int i = 0; i < vec.size(); i++) {
     int comp = targetSum - vec[i];
-    //std::cout<<comp<<std::endl;
-    if(pairs.count(comp)) {
+    if(pairs.count(comp) > 0) {
       int pair_index = std::distance(pairs.begin(), pairs.find(comp));
       return std::make_pair(pair_index, i );
     }
+    
     else {
       pairs.insert(std::make_pair(vec[i], i));
-     
     }
-    //std::cout<<i<<std::endl;
   }  
   return std::make_pair(-1,-1);
 }
