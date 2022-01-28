@@ -30,7 +30,7 @@ int main() {
 
   std::cout << "Q3" << std::endl;
   std::vector<int> q3Input1{1, 2, 9, 3, 4, 1, -9, 3, 4};
-  std::pair<int, int> q3Out1 = findTwoSumPair(q3Input1, 6);
+  std::pair<int, int> q3Out1 = findTwoSumPair(q3Input1, -6);
   std::pair<int, int> q3Out2 = findTwoSumPair(q3Input1, 10);
 
   std::cout << q3Out1.first << " " << q3Out1.second
